@@ -62,4 +62,23 @@ Description:    Ubuntu 22.04.2 LTS
 Release:        22.04                                                                                           
 Codename:       jammy 
 ```
+## 5 修改服务器的时区
+
+执行 命令 `date -R ` 查看时区是否正确
+
+先将服务器的时区文件备份下：
+
+` cp /etc/localtime /etc/localtime.bak`
+
+执行命令 `tzselect` 目的是生成一个时区的文件： 
+
+命令执行完成后拷贝文件：
+
+`cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime`
+
+最后我们将服务器时间同步下服务器时间:
+
+`ntpdate time.windows.com` 
+
+`cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime`
 
