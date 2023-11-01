@@ -2,7 +2,7 @@
 set -e
 
 ETCD_VER=$1
-if [ ${ETCD_VER} eq "" ]; then
+if [ -z ${ETCD_VER} ]; then
     ETCD_VER=v3.5.0
 fi
 
@@ -11,14 +11,17 @@ GOOGLE_URL=https://storage.googleapis.com/etcd
 GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
 DOWNLOAD_URL=${GOOGLE_URL}
 
-if [ ! -f "/tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz" ]; then
+if [ -f "/tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz" ]; then
     rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
 fi
 
-if [ ! -d "/tmp/etcd-download-test" ];then
+if [ -d "/tmp/etcd-download-test" ];then
     rm -rf /tmp/etcd-download-test && mkdir -p /tmp/etcd-download-test
 fi
 
+if [ -d "/usr/local/etcd" ];then 
+    rm -rf /usr/local/etcd
+fi
 
 curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -o /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
 
