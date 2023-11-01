@@ -1,4 +1,6 @@
-!/bin/bash
+#!/bin/bash
+set -e
+
 ETCD_VER=$1
 if [ ${ETCD_VER} eq "" ]; then
     ETCD_VER=v3.5.0
