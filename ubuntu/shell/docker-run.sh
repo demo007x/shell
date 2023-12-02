@@ -20,7 +20,7 @@ runRedis(){
 }
 
 
- case ${PARAM} in
+case ${PARAM} in
     mysql)
         runMysql
     ;;
@@ -30,4 +30,4 @@ runRedis(){
     *)
         echo "please input params with mysql or redis to start container 😄"
     ;;
- esac
+esac
