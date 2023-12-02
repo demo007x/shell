@@ -4,7 +4,7 @@ PARAM=$1
 
 ###### mysql ######
 MYSQL_NAME="mdb"
-MPW="yyl521wxl@"
+MPW="mypwd"
 
 runMysql() {
     echo "mysql"
